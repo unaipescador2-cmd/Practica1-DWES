@@ -1,0 +1,2 @@
+1;false;Fallo de internet en los equipos
+2;true;Ordenadores rotos
