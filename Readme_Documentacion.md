@@ -98,7 +98,9 @@ Cada prueba prepara sus propios datos, no usa `Scanner` ni depende del orden. La
 | `EstadisticasTest` | 3 | Gestor vacío; dos abiertas; dos con una cerrada. |
 | `ArchivoTicketsTest` (opcional) | 8 | Archivo inexistente; guardar y cargar conserva datos; punto y coma en descripción; estado inválido; id no numérico; ids repetidos; archivo inválido no se sobrescribe; numeración tras cargar. |
 
-![Pruebas superadas](evidencias/Test_Correctos.png)
+
+<p align="center"><img src="evidencias/Test_Correctos.png" alt="Pruebas superadas" width="650"></p>
+
 
 **Pruebas que merece la pena saber interpretar:**
 
@@ -114,41 +116,75 @@ Se comentó a propósito la línea `cerrado = true;` de `Ticket.cerrar()`.
 - **Por qué:** ambas verifican con `assertTrue(t.estaCerrado())` que el estado cambia; sin esa línea el ticket seguía abierto.
 - **Conclusión:** las aserciones detectan el fallo, es decir, las pruebas comprueban el requisito y no solo llaman al método. Después se restauró el código.
 
-![Prueba fallida provocada](evidencias/Programafallando.png)
+
+<p align="center"><img src="evidencias/Programafallando.png" alt="Prueba fallida provocada" width="650"></p>
+
 
 ## 5. Demostración
 
-**1. Inicio sin archivo de datos**
-![Inicio](evidencias/Archivo_Iniciado.png)
+Recorrido obligatorio del enunciado, paso a paso.
 
-**2. Dos incidencias válidas**
-![Primera incidencia](evidencias/Primera_Incidencia.png)
-![Segunda incidencia](evidencias/Segunda_Incidencia.png)
+### Paso 1 · Inicio sin archivo de datos
 
-**3. Descripción en blanco rechazada**
-![Descripción en blanco](evidencias/Incidencia_Blanco.png)
+La aplicación arranca sin `tickets.txt` y parte de una colección vacía.
 
-**4. Cerrar la segunda incidencia**
-![Cerrar ID 2](evidencias/Opcion4_ID2.png)
+<p align="center"><img src="evidencias/Archivo_Iniciado.png" alt="Inicio sin archivo" width="650"></p>
 
-**5. Estadísticas: 2 totales, 1 abierta, 1 cerrada**
-![Estadísticas](evidencias/Opcion5.png)
+### Paso 2 · Crear dos incidencias válidas
 
-**6. Guardar y salir**
-![Guardar](evidencias/Opcion6.png)
-![Salir](evidencias/Opcion0.png)
+Se crean las incidencias 1 y 2, ambas abiertas.
 
-**7. Tras reiniciar, los datos se conservan**
-![Listado tras reiniciar](evidencias/Opcion2.png)
+<p align="center"><img src="evidencias/Primera_Incidencia.png" alt="Primera incidencia" width="650"></p>
 
-**8. Pruebas con Maven:** ver captura de la sección 4.
+<p align="center"><img src="evidencias/Segunda_Incidencia.png" alt="Segunda incidencia" width="650"></p>
+
+### Paso 3 · Descripción en blanco rechazada
+
+No se crea el ticket y se informa del motivo.
+
+<p align="center"><img src="evidencias/Incidencia_Blanco.png" alt="Descripción en blanco" width="650"></p>
+
+### Paso 4 · Cerrar la segunda incidencia
+
+Se cierra la incidencia 2 y se confirma.
+
+<p align="center"><img src="evidencias/Opcion4_ID2.png" alt="Cerrar incidencia 2" width="650"></p>
+
+### Paso 5 · Estadísticas
+
+Resultado esperado: 2 totales, 1 abierta y 1 cerrada.
+
+<p align="center"><img src="evidencias/Opcion5.png" alt="Estadísticas" width="650"></p>
+
+### Paso 6 · Guardar y salir
+
+Se guardan las incidencias con la opción 6 y se sale con la 0.
+
+<p align="center"><img src="evidencias/Opcion6.png" alt="Guardar" width="650"></p>
+
+<p align="center"><img src="evidencias/Opcion0.png" alt="Salir" width="650"></p>
+
+### Paso 7 · Datos conservados tras reiniciar
+
+Al volver a ejecutar, se recuperan las incidencias con su estado.
+
+<p align="center"><img src="evidencias/Opcion2.png" alt="Listado tras reiniciar" width="650"></p>
+
+
+
+### Paso 8 · Pruebas con Maven
+
+Ver la captura de la sección 4 (*Pruebas superadas*).
 
 ### Comprobaciones extra de errores
 
-| Entrada incorrecta | Resultado | Captura |
-|---|---|---|
-| Texto en lugar de opción de menú | Aviso de opción incorrecta; el programa continúa. | ![Menú](evidencias/Pruebaextra_menu.png) |
-| Texto en lugar de identificador | Se avisa y se vuelve a pedir. | ![ID](evidencias/Pruebaextra_ID-string.png) |
+**Texto en lugar de una opción de menú:** aviso de opción incorrecta y el programa continúa.
+
+<p align="center"><img src="evidencias/Pruebaextra_menu.png" alt="Opción de menú incorrecta" width="650"></p>
+
+**Texto en lugar de un identificador:** se avisa y se vuelve a pedir.
+
+<p align="center"><img src="evidencias/Pruebaextra_ID-string.png" alt="Identificador no numérico" width="650"></p>
 
 ## 6. Limitaciones conocidas
 
@@ -172,3 +208,4 @@ El desarrollo se ha hecho de forma incremental, con un commit por cada avance re
 | 6 | Clase EstadisticasTest completada y tests comprobados | Pruebas de estadísticas y ejecución de todas las pruebas. |
 | 7 | Pruebas de evidencias para documentacion | Carpeta `evidencias/` con las capturas de la demostración. |
 | 8 | Tickets.txt donde se guardaran las incidencias | Archivo `tickets.txt` de ejemplo. |
+
